@@ -39,7 +39,7 @@ const SearchBooks = () => {
 
       const { items } = await response.json();
 
-      const input = items.map((book) => ({
+      const bookData = items.map((book) => ({
         bookId: book.id,
         authors: book.volumeInfo.authors || ['No author to display'],
         title: book.volumeInfo.title,
@@ -47,7 +47,7 @@ const SearchBooks = () => {
         image: book.volumeInfo.imageLinks?.thumbnail || '',
       }));
 
-      setSearchedBooks(input);
+      setSearchedBooks(bookData);
       setSearchInput('');
     } catch (err) {
       console.error(err);
